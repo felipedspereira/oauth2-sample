@@ -1,0 +1,9 @@
+server:
+  port: 8000
+ 
+spring:
+  dsOauth:
+    jdbc-url: jdbc:mysql://172.25.0.2/oauth2
+    username: oauth2
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver

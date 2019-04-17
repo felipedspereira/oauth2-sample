@@ -1,0 +1,12 @@
+server:
+  port: 9000
+  
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-api-example/app_example
+    username: app_example
+    password: 123
+    hikari:
+      initialization-fail-timeout: 0
+      connection-timeout: 5000
+    

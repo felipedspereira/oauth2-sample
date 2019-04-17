@@ -1,0 +1,32 @@
+version: '3'
+services: 
+  api:
+    image: api-example:latest
+    container_name: api-example
+    ports:
+      - "9000:9000"
+    networks:
+      - oauth2-network
+    depends_on: 
+      - "mysql"
+    entrypoint: ./wait-for-it.sh -t 60 mysql:3306 -- java -jar app.jar
+      
+  mysql:
+    build: 
+      dockerfile: mysql.dockerfile
+      context: ./src/main/resources/docker/
+    image: felipedspereira/mysql-api-example
+    container_name: mysql-api-example
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: app_example
+      MYSQL_PASSWORD: 123
+      MYSQL_DATABASE: app_example
+    networks: 
+      - oauth2-network
+              
+networks:
+  oauth2-network:
+    driver: bridge
