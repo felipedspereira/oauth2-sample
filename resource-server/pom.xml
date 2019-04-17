@@ -11,9 +11,9 @@
 	</parent>
 	
 	<groupId>com.felipe.api</groupId>
-	<artifactId>api-example</artifactId>
+	<artifactId>resource-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api-example</name>
+	<name>resource server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -89,7 +89,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>${project.build.finalName}</repository>
+					<repository>felipedspereira/${project.build.finalName}</repository>
 					<tag>latest</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

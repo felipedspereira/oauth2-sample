@@ -1,2 +1,9 @@
 resource-server/target/
 authorization-server/target/
+authorization-server/.classpath
+authorization-server/.factorypath
+authorization-server/.project
+authorization-server/.settings
+resource-server/.settings
+resource-server/.classpath
+resource-server/.project

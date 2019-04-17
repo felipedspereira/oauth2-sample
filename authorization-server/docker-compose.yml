@@ -1,10 +1,10 @@
 version: '3'
 services: 
   api:
-    image: felipedspereira/resource-server:latest
-    container_name: resource-server
+    image: felipedspereira/authorization-server:latest
+    container_name: authorization-server
     ports:
-      - "9000:9000"
+      - "8000:8000"
     networks:
       - oauth2-network
     depends_on: 
@@ -15,15 +15,15 @@ services:
     build: 
       dockerfile: mysql.dockerfile
       context: ./src/main/resources/docker/
-    image: felipedspereira/mysql-resource-server
-    container_name: mysql-resource-server
+    image: felipedspereira/mysql-authorization-server
+    container_name: mysql-authorization-server
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 123
-      MYSQL_USER: resource_server
+      MYSQL_USER: authorization_server
       MYSQL_PASSWORD: 123
-      MYSQL_DATABASE: resource_server
+      MYSQL_DATABASE: oauth2
     networks: 
       - oauth2-network
               

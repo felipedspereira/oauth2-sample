@@ -1,6 +1,17 @@
 version: '3'
 services: 
-  api:
+  authorization-server:
+    image: felipedspereira/authorization-server:latest
+    container_name: authorization-server
+    ports:
+      - "8000:8000"
+    networks:
+      - oauth2-network
+    depends_on: 
+      - "mysql"
+    entrypoint: ./wait-for-it.sh -t 120 mysql:3306 -- java -jar app.jar
+  
+  resource-server:
     image: felipedspereira/resource-server:latest
     container_name: resource-server
     ports:
@@ -14,16 +25,13 @@ services:
   mysql:
     build: 
       dockerfile: mysql.dockerfile
-      context: ./src/main/resources/docker/
-    image: felipedspereira/mysql-resource-server
-    container_name: mysql-resource-server
+      context: .
+    image: felipedspereira/mysql-oauth2-example
+    container_name: mysql-oauth2-example
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 123
-      MYSQL_USER: resource_server
-      MYSQL_PASSWORD: 123
-      MYSQL_DATABASE: resource_server
     networks: 
       - oauth2-network
               
