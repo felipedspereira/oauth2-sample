@@ -2,7 +2,7 @@
 Simple integration between an Authorization Server and a Resource Server using Spring technologies.
 
 ## how to run the project
-Simply go to the **dockerfiles** folder and run a `docker-compose up` command. 
+Simply go to the **dockerfiles** folder and run the `docker-compose up` command. 
 
 ***PS**: it requires docker and docker-compose installed in your computer.*
 
