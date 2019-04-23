@@ -58,13 +58,13 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.13</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
-		
+
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -84,6 +84,18 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<id>development</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<project.environment>development</project.environment>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -107,7 +119,7 @@
 				<configuration>
 					<repository>felipedspereira/${project.build.finalName}</repository>
 					<dockerfile>Dockerfile.dockerfile</dockerfile>
-					<tag>latest</tag>
+					<tag>${project.environment}</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
 					</buildArgs>

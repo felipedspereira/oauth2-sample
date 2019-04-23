@@ -1,7 +1,7 @@
 version: '3'
 services: 
   authorization-server:
-    image: felipedspereira/authorization-server:latest
+    image: felipedspereira/authorization-server:development
     container_name: authorization-server
     ports:
       - "8000:8000"
@@ -12,7 +12,7 @@ services:
     entrypoint: ./wait-for-it.sh -t 120 mysql:3306 -- java -jar app.jar
   
   resource-server:
-    image: felipedspereira/resource-server:latest
+    image: felipedspereira/resource-server:development
     container_name: resource-server
     ports:
       - "9000:9000"
