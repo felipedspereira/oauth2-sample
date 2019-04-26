@@ -6,12 +6,12 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - JDBC_URL=${DB_URL_AUTH_SERVER}
+      - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER_AUTH_SERVER}
       - DB_PASSWD=${DB_PASSWORD_AUTH_SERVER}
     networks:
       - oauth2-network
-    entrypoint: ./wait-for-it.sh -t 120 ${DB_URL_AUTH_SERVER}:3306 -- java -jar app.jar
+    entrypoint: ./wait-for-it.sh -t 120 ${DB_HOST}:3306 -- java -jar app.jar
   
   resource-server:
     image: felipedspereira/resource-server:development
@@ -19,12 +19,12 @@ services:
     ports:
       - "9000:9000"
     environment:
-      - JDBC_URL=${DB_URL_RESOURCE_SERVER}
+      - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER_RESOURCE_SERVER}
       - DB_PASSWD=${DB_PASSWORD_RESOURCE_SERVER}
     networks:
       - oauth2-network
-    entrypoint: ./wait-for-it.sh -t 120 ${DB_URL_RESOURCE_SERVER}:3306 -- java -jar app.jar
+    entrypoint: ./wait-for-it.sh -t 120 ${DB_HOST}:3306 -- java -jar app.jar
               
 networks:
   oauth2-network:
