@@ -3,6 +3,6 @@ server:
  
 spring:
   dsOauth:
-    jdbc-url: ${JDBC_URL}
+    jdbc-url: jdbc:mysql://${DB_HOST}/oauth2
     username: ${DB_USER}
     password: ${DB_PASSWD}
