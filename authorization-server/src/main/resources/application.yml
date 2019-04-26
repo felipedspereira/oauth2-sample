@@ -3,7 +3,6 @@ server:
  
 spring:
   dsOauth:
-    jdbc-url: jdbc:mysql://mysql/oauth2
-    username: user-oauth2
-    password: 123
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-url: ${JDBC_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWD}

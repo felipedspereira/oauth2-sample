@@ -3,6 +3,6 @@ server:
   
 spring:
   datasource:
-    url: jdbc:mysql://mysql/resource_server
-    username: user-resource-server
-    password: 123
+    url: ${JDBC_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWD}

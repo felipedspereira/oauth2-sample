@@ -1,3 +1,6 @@
+/**
+* This script should be executed in the target database to create and populate the oauth2 and resource_server databases;
+*/
 -- create databases
 CREATE DATABASE oauth2;
 CREATE DATABASE resource_server;
